@@ -1,3 +1,4 @@
+ $(document).ready(function(e) {
 var peer;
 
     $.ajax ({
@@ -68,4 +69,7 @@ peer.on("call",call=>{
           //playStream('localStream',stream)
           call.on('stream',dataStream=>playStream('traLoi',dataStream));
         });
+});
+
+
 });
