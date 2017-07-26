@@ -1,4 +1,4 @@
-var configHostTurn;
+let configHostTurn;
 
 $( document ).ready( function () {
     $.ajax ({
