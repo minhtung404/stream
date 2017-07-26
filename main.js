@@ -35,7 +35,7 @@ function playStream(idVideoTag, stream) {
 
 
 
-configHostTurn={ 'iceServers': [{ 'url': 'stun:stun.l.google.com:19302' }] };
+configHostTurn={ 'iceServers': [{ 'url': 'stun:stun4.l.google.com:19302' }] };
 //openCamera();
 var peer = new Peer({key:'peerjs', host:'peerservermemo.herokuapp.com', secure:true, port:443, config:configHostTurn});
 peer.on('open',function(data){
