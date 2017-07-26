@@ -35,7 +35,7 @@ function playStream(idVideoTag, stream) {
 
 
 //openCamera();
-var peer = new Peer({key:'peerjs', host:'https://appkhac.herokuapp.com', secure:true, port:443});
+var peer = new Peer({key:'peerjs', host:'peerservermemo.herokuapp.com', secure:true, port:443});
 peer.on('open',function(data){
   $('#myPeer').html(data);
 });
