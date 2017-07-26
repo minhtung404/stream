@@ -1,5 +1,4 @@
-let configHostTurn;
-
+var peer;
 
     $.ajax ({
         url: "https://global.xirsys.net/_turn/streamsturn/",
@@ -11,6 +10,7 @@ let configHostTurn;
         success: function (res){
           configHostTurn = res.v.iceServers;
           console.log("ICE List: "+res);
+           peer = new Peer({key:'peerjs', host:'peerservermemo.herokuapp.com', secure:true, port:443, config:configHostTurn});
         }
     });
 
@@ -35,9 +35,9 @@ function playStream(idVideoTag, stream) {
 
 
 
-configHostTurn={ 'iceServers': [{ 'url': 'stun:stun.l.google.com:19302' }] };
+
 //openCamera();
-var peer = new Peer({key:'peerjs', host:'peerservermemo.herokuapp.com', secure:true, port:443, config:configHostTurn});
+
 peer.on('open',function(data){
   $('#myPeer').html(data);
 });
