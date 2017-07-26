@@ -10,7 +10,7 @@ $( document ).ready( function () {
         },
         success: function (res){
           configHostTurn = res.v.iceServers;
-          console.log("ICE List: "+res.v.iceServers);
+          //console.log("ICE List: "+res.v.iceServers);
         }
     });
 })
@@ -35,7 +35,7 @@ function playStream(idVideoTag, stream) {
 
 
 
-
+console.log("1--:"+configHostTurn);
 //openCamera();
 var peer = new Peer({key:'peerjs', host:'peerservermemo.herokuapp.com', secure:true, port:443, config:configHostTurn});
 peer.on('open',function(data){
