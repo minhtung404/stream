@@ -68,5 +68,6 @@ peer.on("call",call=>{
           //playStream('localStream',stream)
           console.log(stream);
           call.on('stream',dataStream=>playStream('traLoi',dataStream));
+          console.log(dataStream);
         });
 });
