@@ -1,19 +1,25 @@
-var configHostTurn;
+// and override the original config object
+var customConfig;
 
-$( document ).ready( function () {
-    $.ajax ({
-        url: "https://global.xirsys.net/_turn/streamsturn/",
-        type: "PUT",
-        async: false,
-        headers: {
-          "Authorization": "Basic " + btoa("tungamg:b6af8e26-710d-11e7-bee9-b3e63005ef04")
-        },
-        success: function (res){
-          configHostTurn = res.v.iceServers;
-          //console.log("ICE List: "+res.v.iceServers);
-        }
-    });
-})
+// Call XirSys ICE servers
+$.ajax({
+  url: "https://global.xirsys.net/_turn/streamsturn/",
+  data: {
+    ident: "tungamg",
+    secret: "b6af8e26-710d-11e7-bee9-b3e63005ef04",
+    domain: "minhtung404.github.io/stream/home.html",
+    application: "default",
+    room: "default",
+    secure: 1
+  },
+  success: function (data, status) {
+    // data.d is where the iceServers object lives
+    customConfig = data.d;
+    console.log(customConfig);
+  },
+  async: false
+});
+
 
 
 function openStream() {
@@ -35,9 +41,9 @@ function playStream(idVideoTag, stream) {
 
 
 
-console.log("1--:"+configHostTurn);
+//console.log("1--:"+configHostTurn);
 //openCamera();
-var peer = new Peer({key:'peerjs', host:'peerservermemo.herokuapp.com', secure:true, port:443, config:configHostTurn});
+var peer = new Peer({key:'peerjs', host:'peerservermemo.herokuapp.com', secure:true, port:443, config:customConfig});
 peer.on('open',function(data){
   $('#myPeer').html(data);
 });
