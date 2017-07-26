@@ -1,17 +1,19 @@
 var configHostTurn;
-         $.ajax ({
-             url: "https://global.xirsys.net/_turn/MyFirstApp/",
-             type: "PUT",
-             async: false,
-             headers: {
-               "Authorization": "Basic " + btoa("tungamg:b6af8e26-710d-11e7-bee9-b3e63005ef04")
-             },
-             success: function (res){
-               configHostTurn = res.v.iceServers;
-               console.log("ICE List: "+res.v.iceServers);
-             }
-         });
 
+$( document ).ready( function () {
+    $.ajax ({
+        url: "https://global.xirsys.net/_turn/streamsturn/",
+        type: "PUT",
+        async: false,
+        headers: {
+          "Authorization": "Basic " + btoa("tungamg:b6af8e26-710d-11e7-bee9-b3e63005ef04")
+        },
+        success: function (res){
+          configHostTurn = res.v.iceServers;
+          console.log("ICE List: "+res.v.iceServers);
+        }
+    });
+})
 
 
 function openStream() {
