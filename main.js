@@ -67,7 +67,10 @@ peer.on("call",call=>{
           // Tong dai khong can stream chinh minh
           //playStream('localStream',stream)
           console.log(stream);
-          call.on('stream',dataStream=>playStream('traLoi',dataStream));
-          console.log(dataStream);
+          call.on('stream',dataStream=>{
+            playStream('traLoi',dataStream)
+            console.log("dataSteam"+dataStream);
+          });
+
         });
 });
