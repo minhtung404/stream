@@ -7,7 +7,7 @@ var configHostTurn;
                "Authorization": "Basic " + btoa("tungamg:b6af8e26-710d-11e7-bee9-b3e63005ef04")
              },
              success: function (res){
-               config = res.v.iceServers;
+               configHostTurn = res.v.iceServers;
                console.log("ICE List: "+res.v.iceServers);
              }
          });
