@@ -1,19 +1,18 @@
- $(document).ready(function(e) {
-var peer;
 
-    $.ajax ({
-        url: "https://global.xirsys.net/_turn/streamsturn/",
-        type: "PUT",
-        async: false,
-        headers: {
-          "Authorization": "Basic " + btoa("tungamg:b6af8e26-710d-11e7-bee9-b3e63005ef04")
-        },
-        success: function (res){
-          configHostTurn = res.v.iceServers;
-          console.log("ICE List: "+res);
-           peer = new Peer({key:'peerjs', host:'peerservermemo.herokuapp.com', secure:true, port:443, config:configHostTurn});
-        }
-    });
+
+
+    // $.ajax ({
+    //     url: "https://global.xirsys.net/_turn/streamsturn/",
+    //     type: "PUT",
+    //     async: false,
+    //     headers: {
+    //       "Authorization": "Basic " + btoa("tungamg:b6af8e26-710d-11e7-bee9-b3e63005ef04")
+    //     },
+    //     success: function (res){
+    //       configHostTurn = res.v.iceServers;
+    //       console.log("ICE List: "+res);
+    //     }
+    // });
 
 
 
@@ -36,9 +35,9 @@ function playStream(idVideoTag, stream) {
 
 
 
-
+configHostTurn={ 'iceServers': [{ 'url': 'stun:stun.l.google.com:19302' }] };
 //openCamera();
-
+var peer = new Peer({key:'peerjs', host:'peerservermemo.herokuapp.com', secure:true, port:443, config:configHostTurn});
 peer.on('open',function(data){
   $('#myPeer').html(data);
 });
@@ -69,7 +68,4 @@ peer.on("call",call=>{
           //playStream('localStream',stream)
           call.on('stream',dataStream=>playStream('traLoi',dataStream));
         });
-});
-
-
 });
