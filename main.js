@@ -1,6 +1,6 @@
 let configHostTurn;
 
-$( document ).ready( function () {
+
     $.ajax ({
         url: "https://global.xirsys.net/_turn/streamsturn/",
         type: "PUT",
@@ -13,7 +13,7 @@ $( document ).ready( function () {
           //console.log("ICE List: "+res.v.iceServers);
         }
     });
-})
+
 
 
 function openStream() {
