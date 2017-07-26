@@ -10,7 +10,7 @@ let configHostTurn;
         },
         success: function (res){
           configHostTurn = res.v.iceServers;
-          console.log("ICE List: "+res.v.iceServers);
+          console.log("ICE List: "+res);
         }
     });
 
