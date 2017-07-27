@@ -57,7 +57,7 @@ function playStream(idVideoTag, stream) {
         }
 //openCamera();
 var peer = new Peer({
-  path: '/peerjs',
+
   host:'peerservermemo.herokuapp.com',
   secure:true,
    port:443,
