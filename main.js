@@ -1,4 +1,6 @@
 
+
+
 function openStream() {
     const config = { audio: false, video: true };
     return navigator.mediaDevices.getUserMedia(config);
@@ -18,7 +20,18 @@ function playStream(idVideoTag, stream) {
 
 var configCusTurn = {'iceServers': [
     { url: 'stun:s3.xirsys.com' },
-    { url: 'turns:s3.xirsys.com:443?transport=tcp', credential: 'e24ce366-71e5-11e7-a101-5ff253e2b010' }
+    { url: 'turns:s3.xirsys.com:443?transport=tcp', credential: 'e24ce366-71e5-11e7-a101-5ff253e2b010', username:'95317418-7297-11e7-87fd-910e59c87121' },
+    {
+     'url': 'turn:192.158.29.39:3478?transport=udp',
+     'credential': 'JZEOEt2V3Qb0y27GRntt2u2PAYA=',
+     'username': '28224511:1379330808'
+   },
+   {
+     'url': 'turn:192.158.29.39:3478?transport=tcp',
+     'credential': 'JZEOEt2V3Qb0y27GRntt2u2PAYA=',
+     'username': '28224511:1379330808'
+   }
+
   ]} /* Sample servers, please use appropriate ones */
 
 
@@ -29,10 +42,7 @@ var peer = new Peer({
    secure:true,
    port:443,
    debug:3,
-   config: {'iceServers': [
-    
-    { url: 'turns:s3.xirsys.com:443?transport=tcp', username:'95317418-7297-11e7-87fd-910e59c87121', credential: 'e24ce366-71e5-11e7-a101-5ff253e2b010' }
-  ]}
+   config: configCusTurn
 });
 peer.on('open',function(data){
   $('#myPeer').html(data);
