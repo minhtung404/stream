@@ -24,6 +24,13 @@ var configCusTurn = {'iceServers': [
 
   ]} /* Sample servers, please use appropriate ones */
 
+  var confidStunTwili = {'iceServers': [
+    {"url":"stun:global.stun.twilio.com:3478?transport=udp"},
+    {"url":"turn:global.turn.twilio.com:3478?transport=udp","username":"3d20688b413cf1e6da7e84530c38fdeb9e171ed4f4e269cd2eb61a78a4894a78","credential":"mIY0U8SWx9bkJhy+yjn+tsEmtjZBf+e0ZXugFhrHDuU="},{"url":"turn:global.turn.twilio.com:3478?transport=tcp","username":"3d20688b413cf1e6da7e84530c38fdeb9e171ed4f4e269cd2eb61a78a4894a78","credential":"mIY0U8SWx9bkJhy+yjn+tsEmtjZBf+e0ZXugFhrHDuU="},
+    {"url":"turn:global.turn.twilio.com:443?transport=tcp","username":"3d20688b413cf1e6da7e84530c38fdeb9e171ed4f4e269cd2eb61a78a4894a78","credential":"mIY0U8SWx9bkJhy+yjn+tsEmtjZBf+e0ZXugFhrHDuU="}
+
+    ]} /* Sample servers, please use appropriate ones */
+
 
 //openCamera();
 var peer = new Peer({
@@ -32,7 +39,7 @@ var peer = new Peer({
    secure:true,
    port:443,
    debug:3,
-   config: configCusTurn
+   config: confidStunTwili
 });
 peer.on('open',function(data){
   $('#myPeer').html(data);
