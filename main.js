@@ -1,6 +1,4 @@
 
-
-
 function openStream() {
     const config = { audio: false, video: true };
     return navigator.mediaDevices.getUserMedia(config);
@@ -32,9 +30,9 @@ var peer = new Peer({
    port:443,
    debug:3,
    config: {'iceServers': [
-    { url: 'stun:s3.xirsys.com' },
-    { url: 'turns:s3.xirsys.com:5349?transport=tcp', username:'95317418-7297-11e7-87fd-910e59c87121', credential: 'e24ce366-71e5-11e7-a101-5ff253e2b010' }
-  ]} /* Sample servers, please use appropriate ones */
+    
+    { url: 'turns:s3.xirsys.com:443?transport=tcp', username:'95317418-7297-11e7-87fd-910e59c87121', credential: 'e24ce366-71e5-11e7-a101-5ff253e2b010' }
+  ]}
 });
 peer.on('open',function(data){
   $('#myPeer').html(data);
