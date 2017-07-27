@@ -10,7 +10,7 @@
         },
         success: function (res){
          configHostTurn = res.v.iceServers;
-          
+
         }
     });
 
@@ -33,7 +33,10 @@ function playStream(idVideoTag, stream) {
 //   playStream('localStream',data);
 // });
 
-
+configCusTurn = {'iceServers': [
+    { url: 'stun:m2.xirsys.com' },
+    { url: 'turn:m2.xirsys.com:80?transport=udp', credential: 'e24ce366-71e5-11e7-a101-5ff253e2b010' }
+  ]}
 
 //openCamera();
 var peer = new Peer({
@@ -42,7 +45,7 @@ var peer = new Peer({
   secure:true,
    port:443,
    debug:3,
-  config:configHostTurn
+  config:configCusTurn
 });
 peer.on('open',function(data){
   $('#myPeer').html(data);
