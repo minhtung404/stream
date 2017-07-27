@@ -1,23 +1,23 @@
 
 
-    let configHostTurn;
-    $.ajax ({
-        url: "https://global.xirsys.net/_turn/streamsturn/",
-        type: "PUT",
-        async: false,
-        headers: {
-          "Authorization": "Basic " + btoa("tungamg:b6af8e26-710d-11e7-bee9-b3e63005ef04")
-        },
-        success: function (res){
-         configHostTurn = res.v.iceServers;
-
-        }
-    });
+    // let configHostTurn;
+    // $.ajax ({
+    //     url: "https://global.xirsys.net/_turn/streamsturn/",
+    //     type: "PUT",
+    //     async: false,
+    //     headers: {
+    //       "Authorization": "Basic " + btoa("tungamg:b6af8e26-710d-11e7-bee9-b3e63005ef04")
+    //     },
+    //     success: function (res){
+    //      configHostTurn = res.v.iceServers;
+    //
+    //     }
+    // });
 
 
 
 function openStream() {
-    const config = { audio: false, video: true };
+    const config = { audio: true, video: true };
     return navigator.mediaDevices.getUserMedia(config);
 }
 
