@@ -36,7 +36,8 @@ function playStream(idVideoTag, stream) {
 configCusTurn = {'iceServers': [
     { url: 'stun:m2.xirsys.com' },
     { url: 'turns:m2.xirsys.com:443?transport=tcp', credential: 'e24ce366-71e5-11e7-a101-5ff253e2b010' }
-  ]}
+  ]} /* Sample servers, please use appropriate ones */
+});
 
 //openCamera();
 var peer = new Peer({
