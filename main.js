@@ -34,7 +34,7 @@ function playStream(idVideoTag, stream) {
 // });
 
 configCusTurn = {'iceServers': [
-    { url: 'stun:m2.xirsys.com' },
+    //{ url: 'stun:m2.xirsys.com' },
     { url: 'turns:m2.xirsys.com:443?transport=tcp', username:'e24ce2bc-71e5-11e7-9439-ff66f229d7e9', credential: 'e24ce366-71e5-11e7-a101-5ff253e2b010' }
   ]}
 
