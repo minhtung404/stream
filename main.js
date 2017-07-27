@@ -45,11 +45,12 @@ var peer = new Peer({
   host:'peerservermemo.herokuapp.com',
   secure:true,
    port:443,
-   debug:3,
-  config:configCusTurn
+   debug:3
+  //config:configCusTurn
 });
 peer.on('open',function(data){
   $('#myPeer').html(data);
+
 });
 
 //Nguoi goi
@@ -58,10 +59,10 @@ $('#btnCall').click(function(){
 
         openStream().then(stream=>{
 
-
+            //playStream('localStream',stream)
             // Hien thi video cua nguoi nhan
             // play chinh minh
-            playStream('localStream',stream)
+
             var  call = peer.call(idNguoiGoi,stream);
             // khong can lang nghe data(video) cua tong dai
             //call.on('stream',dataStream=>playStream('localStream',dataStream));
