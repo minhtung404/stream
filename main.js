@@ -18,7 +18,7 @@ function playStream(idVideoTag, stream) {
 //   playStream('localStream',data);
 // });
 
-configCusTurn = {'iceServers': [
+var configCusTurn = {'iceServers': [
     { url: 'stun:m2.xirsys.com' },
     { url: 'turns:m2.xirsys.com:443?transport=tcp',username:'95317418-7297-11e7-87fd-910e59c87121', credential: 'e24ce366-71e5-11e7-a101-5ff253e2b010' }
   ]} /* Sample servers, please use appropriate ones */
@@ -30,7 +30,7 @@ var peer = new Peer({
   host:'peerservermemo.herokuapp.com',
   secure:true,
    port:443,
-   debug:3
+   debug:3,
   config:configCusTurn
 });
 peer.on('open',function(data){
