@@ -17,7 +17,7 @@
 
 
 function openStream() {
-    const config = { audio: true, video: true };
+    const config = { audio: false, video: true };
     return navigator.mediaDevices.getUserMedia(config);
 }
 
@@ -59,7 +59,7 @@ $('#btnCall').click(function(){
 
         openStream().then(stream=>{
 
-            //playStream('localStream',stream)
+            playStream('localStream',stream)
             // Hien thi video cua nguoi nhan
             // play chinh minh
 
