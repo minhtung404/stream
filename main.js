@@ -1,18 +1,18 @@
 
 
-
-    // $.ajax ({
-    //     url: "https://global.xirsys.net/_turn/streamsturn/",
-    //     type: "PUT",
-    //     async: false,
-    //     headers: {
-    //       "Authorization": "Basic " + btoa("tungamg:b6af8e26-710d-11e7-bee9-b3e63005ef04")
-    //     },
-    //     success: function (res){
-    //       configHostTurn = res.v.iceServers;
-    //       console.log("ICE List: "+res);
-    //     }
-    // });
+    let configHostTurn;
+    $.ajax ({
+        url: "https://global.xirsys.net/_turn/streamsturn/",
+        type: "PUT",
+        async: false,
+        headers: {
+          "Authorization": "Basic " + btoa("tungamg:b6af8e26-710d-11e7-bee9-b3e63005ef04")
+        },
+        success: function (res){
+          configHostTurn = res.v.iceServers;
+          console.log("ICE List: "+res.v);
+        }
+    });
 
 
 
@@ -35,9 +35,15 @@ function playStream(idVideoTag, stream) {
 
 
 
-configHostTurn={ 'iceServers': [{ 'url': 'stun:stun4.l.google.com:19302' }] };
+// configHostTurn={ 'iceServers': [{ 'url': 'stun:stun4.l.google.com:19302' }] };
 //openCamera();
-var peer = new Peer({key:'peerjs', host:'peerservermemo.herokuapp.com', secure:true, port:443, config:configHostTurn});
+var peer = new Peer({
+  key:'peerjs',
+  host:'peerservermemo.herokuapp.com',
+  secure:true,
+   port:443,
+   debug:3,
+  config:configHostTurn});
 peer.on('open',function(data){
   $('#myPeer').html(data);
 });
